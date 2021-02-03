@@ -1,21 +1,22 @@
 //console.log("Amarjit Singh")
 var readlineSync = require('readline-sync')
+var chalk = require('chalk');
 var score=0;
-var username = readlineSync.question("Tell us your name")
-console.log("Welcome "+username)
+var username = readlineSync.question(chalk.underline.yellow("Tell us your name")+" ")
+console.log(chalk.bold.magenta.bgWhite("Welcome!"+" "+username))
 
 function play(question,answer) {
-  var userAnswer = readlineSync.question(question);
+  var userAnswer = readlineSync.question(chalk.cyan(question));
   if (userAnswer===answer) {
-    console.log("You are right")
+    console.log(chalk.cyan.bgGreen.bold("You are right!"))
     score+=1
   } else {
-    console.log("You are wrong")
+    console.log(chalk.black.bgRed.bold("You are wrong!"))
     score-=1
   }
-  console.log("-----------------")
-  console.log("Your Score is: "+score)
-  console.log("-----------------")
+  console.log(chalk.red("-----------------"))
+  console.log(chalk.blue.bgYellow("Your Score is:"+" "+score))
+  console.log(chalk.red("-----------------"))
 }
 
 var questions = [
